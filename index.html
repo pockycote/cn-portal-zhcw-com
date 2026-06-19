@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中彩网 · 杂志专题介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
+      background: #f5fafc;
+      color: #1e3a4a;
+      line-height: 1.7;
+      padding: 1.5rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* —— hero 横幅 —— */
+    .hero {
+      background: linear-gradient(135deg, #0f3b4b 0%, #216b7a 70%, #3b9b9c 100%);
+      color: #edf9fb;
+      padding: 3rem 2rem 2.8rem;
+      border-radius: 2.5rem 2.5rem 1.2rem 1.2rem;
+      margin-bottom: 2.8rem;
+      box-shadow: 0 12px 32px -6px rgba(0, 60, 70, 0.18);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "✦";
+      position: absolute;
+      right: -20px;
+      bottom: -30px;
+      font-size: 10rem;
+      opacity: 0.06;
+      color: #b0e0e6;
+      transform: rotate(12deg);
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      margin-bottom: 0.6rem;
+      background: rgba(255, 255, 255, 0.08);
+      display: inline-block;
+      padding: 0 0.8rem 0.2rem 0.8rem;
+      border-radius: 60px;
+      backdrop-filter: blur(2px);
+      font-family: 'Times New Roman', serif;
+    }
+
+    .hero h1 span {
+      font-weight: 700;
+      color: #cceef2;
+    }
+
+    .hero p {
+      max-width: 700px;
+      font-size: 1.1rem;
+      opacity: 0.92;
+      margin-top: 1.2rem;
+      font-weight: 350;
+    }
+
+    .hero .charm {
+      margin-top: 1.6rem;
+      display: inline-block;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+      color: #d2edf2;
+    }
+
+    /* —— 背景卡片式说明 —— */
+    .backdrop-card {
+      background: white;
+      padding: 2rem 2.2rem;
+      border-radius: 2rem;
+      box-shadow: 0 6px 20px rgba(25, 70, 80, 0.06);
+      margin-bottom: 2.8rem;
+      border-left: 6px solid #3b9b9c;
+      transition: all 0.2s ease;
+    }
+
+    .backdrop-card h2 {
+      font-size: 1.7rem;
+      font-weight: 380;
+      color: #1a5a65;
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.2px;
+      border-bottom: 1px solid #d7e9ed;
+      padding-bottom: 0.5rem;
+    }
+
+    .backdrop-card p {
+      margin-bottom: 1rem;
+    }
+
+    .backdrop-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* —— 三段自然介绍 —— 网格卡片 —— */
+    .grid-three {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+      margin-bottom: 2.8rem;
+    }
+
+    .card-item {
+      background: white;
+      border-radius: 1.6rem;
+      padding: 1.8rem 1.5rem 2rem;
+      box-shadow: 0 6px 20px rgba(20, 70, 80, 0.04);
+      transition: transform 0.25s ease, box-shadow 0.2s;
+      border: 1px solid #e4f0f3;
+    }
+
+    .card-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px -8px rgba(30, 90, 100, 0.12);
+      border-color: #99cdd4;
+    }
+
+    .card-item .icon {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+      display: block;
+      color: #297e8a;
+    }
+
+    .card-item h3 {
+      font-size: 1.2rem;
+      font-weight: 550;
+      color: #12424e;
+      margin-bottom: 0.7rem;
+      letter-spacing: 0.3px;
+    }
+
+    .card-item p {
+      color: #375e69;
+      font-size: 0.95rem;
+    }
+
+    /* —— 页尾访问提示 —— */
+    .footer-note {
+      background: #e2f0f3;
+      padding: 2.2rem 2rem;
+      border-radius: 2rem;
+      text-align: center;
+      margin-bottom: 1.8rem;
+      border: 1px solid #c0dde3;
+    }
+
+    .footer-note p {
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto 0.5rem;
+      color: #1b4e5a;
+    }
+
+    .footer-note a {
+      color: #0f5b68;
+      background: #d2e9ed;
+      padding: 0.15rem 1rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s;
+      white-space: nowrap;
+      border: 1px solid transparent;
+    }
+
+    .footer-note a:hover {
+      background: #b7d9e0;
+      border-color: #67a8b3;
+      color: #04303b;
+    }
+
+    .footer-note .fine-print {
+      font-size: 0.8rem;
+      opacity: 0.75;
+      margin-top: 1.2rem;
+      color: #3b6f7a;
+    }
+
+    /* —— 响应式 —— */
+    @media (max-width: 820px) {
+      .grid-three {
+        grid-template-columns: 1fr 1fr;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 540px) {
+      body {
+        padding: 0.8rem;
+      }
+      .hero {
+        padding: 2rem 1.2rem 2rem;
+        border-radius: 1.8rem 1.8rem 1rem 1rem;
+      }
+      .hero h1 {
+        font-size: 1.7rem;
+        display: block;
+        background: transparent;
+        padding-left: 0;
+      }
+      .hero p {
+        font-size: 0.95rem;
+      }
+      .grid-three {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+      .backdrop-card {
+        padding: 1.5rem;
+      }
+      .footer-note {
+        padding: 1.5rem 1rem;
+      }
+      .footer-note a {
+        display: inline-block;
+        margin: 0.3rem 0;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .hero h1 {
+        font-size: 1.4rem;
+      }
+      .card-item {
+        padding: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- hero 横幅 杂志风格 -->
+  <div class="hero">
+    <h1>〈 <span>中彩网</span> 〉</h1>
+    <p>
+      一份关于信息整合与日常关注的轻杂志。从数字背后看趋势，从细节里找到自己的节奏。不必追逐，只需知晓。
+    </p>
+    <div class="charm">✦ 专题 · 视角 · 记录</div>
+  </div>
+
+  <!-- 背景说明 卡片 -->
+  <div class="backdrop-card">
+    <h2>为何关注这个角落</h2>
+    <p>
+      在信息过载的时代，许多人反而更渴望简洁、可信的内容来源。<strong>中彩网</strong> 所代表的并非一时热度，
+      而是一种长期对公开信息的梳理与呈现方式。它不制造焦虑，也不粉饰数据，
+      只是试图让每个普通浏览者——无论资深还是初涉——都能以自己的步调去了解。
+    </p>
+    <p>
+      这份杂志式页面意在还原一种观看距离：不近不远，刚好能看见全貌。背景里的蓝绿色调，
+      像是雨后窗外的远山，安静且清晰。内容的可读性，往往比即时性更值得珍惜。
+    </p>
+  </div>
+
+  <!-- 三段自然介绍：网格卡片 -->
+  <div class="grid-three">
+    <div class="card-item">
+      <span class="icon">📋</span>
+      <h3>信息筛选的朴素逻辑</h3>
+      <p>
+        每天都有海量消息流经屏幕，而筛选本身已成为一种能力。
+        <strong>中彩网</strong> 的做法更接近编辑思维：把碎片整理成模块，
+        让浏览者不必从零开始拼接。专题、列表、摘要，层层递进，留给读者判断的空间。
+      </p>
+    </div>
+    <div class="card-item">
+      <span class="icon">🧭</span>
+      <h3>从数据到感知</h3>
+      <p>
+        数字本身是中性的，但解读可以很温和。页面上的每个分类都试图降低认知负担，
+        不堆砌术语，不制造紧迫感。你可以在任何时刻打开，也可以随时放下，
+        信息就在那里，不催促。
+      </p>
+    </div>
+    <div class="card-item">
+      <span class="icon">🌱</span>
+      <h3>日常里的参照坐标</h3>
+      <p>
+        许多习惯的养成，都始于一个简单的动作：定期浏览一个值得信赖的站点。
+        不必每天紧盯，但知道在哪里可以找到有条理的记录。
+        这种从容的使用方式，或许正是数字生活里最朴素的仪式感。
+      </p>
+    </div>
+  </div>
+
+  <!-- 页尾访问提示 把链接自然嵌入句子 -->
+  <div class="footer-note">
+    <p>
+      如果你对持续更新的信息整理方式感兴趣，不妨将 <a href="https://cn-portal-zhcw.com">中彩网</a> 加入你的书签栏。
+      它不会用弹窗或横幅打扰你，只有安静的目录、清晰的分类，以及一份愿意长期维护的耐心。
+    </p>
+    <p class="fine-print">
+      杂志风格 · 蓝绿底色 · 移动优先
+    </p>
+  </div>
+
+  <!-- 极简版权行，仅作为页面收束 -->
+  <div style="text-align: center; font-size: 0.7rem; color: #7f9fa6; padding: 1rem 0 0.3rem; border-top: 1px solid #d2e3e7; letter-spacing: 0.5px;">
+    <span>内容视角 · 温和呈现</span>
+  </div>
+
+</div>
+
+</body>
+</html>
